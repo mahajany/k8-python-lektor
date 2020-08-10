@@ -3,6 +3,7 @@ sudo: false
 language: python
 python: 2.7
 install:
+  - cd lektor-app
   - pip install Lektor
   - npm install --global npm@latest
 script:
@@ -17,7 +18,7 @@ cache: pip
 #    - $HOME/.cache/lektor/builds
 addons:
   ssh_known_hosts:
-    - 172.104.11.34
+    - 213.127.77.206
 notifications:
   webhooks:
     urls:
