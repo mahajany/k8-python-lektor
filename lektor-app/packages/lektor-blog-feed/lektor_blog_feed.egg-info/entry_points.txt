@@ -1,0 +1,3 @@
+[lektor.plugins]
+blog-feed = lektor_blog_feed:LektorBlogFeedPlugin
+

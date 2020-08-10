@@ -1,0 +1,618 @@
+<!doctype html>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta property="og:site_name" content="Pallets">
+<meta property="og:url" content="https://palletsprojects.com/blog/page/3/">
+<meta property="og:title" content="Blog">
+<meta property="og:type" content="website">
+<meta property="og:image" content="https://palletsprojects.com/og_image.png">
+<meta property="og:image:width" content="400">
+<meta property="og:image:height" content="400">
+<meta property="og:image:type" content="image/png">
+<meta property="og:image:alt" content="logo">
+<link rel="stylesheet" href="">
+<link rel="stylesheet" href="/static/pygments.css">
+<script type="text/javascript" src=""></script>
+<title>Blog | The Pallets Projects</title>
+<body class="default">
+  <nav class="navbar navbar-inverse navbar-static-top">
+    <div class="container">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed"
+          data-toggle="collapse" data-target="#navbar"
+          aria-expanded="false" aria-controls="navbar">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="/">The Pallets Projects</a>
+      </div>
+      <div id="navbar" class="collapse navbar-collapse">
+        <ul class="nav navbar-nav">
+          <li>
+            
+              <a href="/p/">Projects</a>
+            
+          </li>
+        
+          <li>
+            
+              <a href="/governance/">Governance</a>
+            
+          </li>
+        
+          <li>
+            
+              <a href="/people/">People</a>
+            
+          </li>
+        
+          <li class="active">
+            
+              <a href="/blog/">Blog</a>
+            
+          </li>
+        
+          <li>
+            
+              <a href="/donate"><strong>Donate</strong></a>
+            
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <div class="body-wrapper">
+    
+    <div class="container">
+      
+  <div class="row">
+    <div class="col-sm-3">
+      <ul class="tree-nav nocontent">
+        
+  
+  
+  <li class=active><a href="/blog/">Blog</a></li>
+
+        
+  
+  
+  <li><a href="/blog/categories/">Categories</a><ul>
+          
+            
+  
+  
+  <li><a href="/blog/categories/meta/">Meta</a></li>
+
+          
+            
+  
+  
+  <li><a href="/blog/categories/releases/">Releases</a></li>
+
+          
+            
+  
+  
+  <li><a href="/blog/categories/security/">Security</a></li>
+
+          
+        </ul></li>
+
+        
+          <li><a href="/blog/feed.xml">Blog Feed</a>
+        
+      </ul>
+    </div>
+    <div class="col-sm-9">
+      
+  
+    
+  <div class="blog-post">
+  
+    <h2><a href="/blog/donate/">Donate to Support Pallets</a></h2>
+  
+  <p class="meta">
+    written by
+    
+      <a href="https://twitter.com/davidism">David Lord</a>
+    
+    on 2018-04-26
+      in
+      
+        <a href="/blog/categories/meta/">Meta</a>
+      
+    
+  </p>
+  <p>Pallets is excited to announce that we have joined the Python Software
+Foundation's Fiscal Sponsorship program. As a non-profit organization,
+the PSF will accept donations on behalf of Pallets into a dedicated
+account.</p>
+<p>Donations enable more attention from maintainers, which translates into
+more time devoted to fixing bugs, developing features, and making
+quicker releases. <a href="https://psfmember.org/civicrm/contribute/transact?reset=1&amp;id=20"><strong>Click here to donate today.</strong></a></p>
+<p>The Pallets organization develops and supports Flask, Jinja, Werkzeug,
+Click, and other Python libraries. These libraries power applications of
+all sizes around the world, and are downloaded millions of times each
+month. Despite their popularity, the projects are primarily maintained
+by only a few developers. The goal of Pallets is to grow the community
+around these projects to create a sustainable group of contributors and
+users.</p>
+<p>Your donation will help:</p>
+<ul>
+<li>Allow maintainers to devote more of their time to the projects.</li>
+<li>Recognize outstanding contributors in the community.</li>
+<li>Allow maintainers and community members to attend conferences.</li>
+<li>Acquire infrastructure and developer tools.</li>
+<li>Sponsor local meetup events.</li>
+<li>And more!</li>
+</ul>
+<p>If you like the work we do, you may donate as an
+individual. If your employer uses Flask or any of the Pallets projects,
+reach out to them to donate.</p>
+<p>Flask and the Pallets team depends on you, the community. We thank you
+for all the contributions you've already made, and look forward to
+growing the community even more.</p>
+<p><a href="https://psfmember.org/civicrm/contribute/transact?reset=1&amp;id=20"><strong>Click here to donate today.</strong></a></p>
+
+  </div>
+
+  
+    
+  <div class="blog-post">
+  
+    <h2><a href="/blog/flask-1-0-released/">Flask 1.0 Released</a></h2>
+  
+  <p class="meta">
+    written by
+    
+      <a href="https://twitter.com/davidism">David Lord</a>
+    
+    on 2018-04-26
+      in
+      
+        <a href="/blog/categories/security/">Security</a>
+      ,
+        <a href="/blog/categories/releases/">Releases</a>
+      
+    
+  </p>
+  <p>The Pallets team is pleased to release <a href="https://palletsprojects.com/p/flask/">Flask</a> 1.0.</p>
+<p>The Flask framework has been stable for a long time. A little more than 8 years after the first commit, the version number finally reflects that. 1.0 comes with a significant number of changes representing over a year of work.</p>
+<ul>
+<li>Dropped support for Python 2.6 and 3.3.</li>
+<li>The CLI is more flexible. <code>FLASK_APP</code> can point to an app factory, optionally with arguments. It understands import names in more cases where filenames were previously used. It automatically detects common filenames, app names, and factory names. <code>FLASK_ENV</code> describes the environment the app is running in, like <code>development</code>, and replaces <code>FLASK_DEBUG</code> in most cases. <a href="http://flask.pocoo.org/docs/1.0/cli/">See the docs to learn more.</a></li>
+<li>If python-dotenv is installed, the <code>flask</code> CLI will load environment variables from <code>.flaskenv</code> and <code>.env</code> files rather than having to export them in each new terminal.</li>
+<li>The development server is multi-threaded by default to handle concurrent requests during development.</li>
+<li><code>flask.ext</code>, which was previously deprecated, is completely removed. Import extensions by their actual package names.</li>
+<li>Accessing missing keys from <code>request.form</code> shows a more helpful error message in debug mode, addressing a very common source of confusion for developers.</li>
+<li>Error handlers are looked up by code then exception class, on the blueprint then application. This gives more predictable control over handlers, including being able to handle <code>HTTPException</code>.</li>
+<li>The behavior of <code>app.logger</code> has been greatly simplified and should be much easier to customize. The logger is always named <code>flask.app</code>, it only adds a handler if none are registered, and it never removes existing handlers. <a href="http://flask.pocoo.org/docs/1.0/logging/">See the docs to learn more.</a></li>
+<li>The <code>test_client</code> gained a <code>json</code> argument for posting JSON data, and the <code>Response</code> object gained a <code>get_json</code> method to decode the data as JSON in tests.</li>
+<li>A new <code>test_cli_runner</code> is added for testing an app's CLI commands.</li>
+<li>Many documentation sections have been rewritten to improve clarity and relevance. This is an ongoing effort.</li>
+<li>The <a href="http://flask.pocoo.org/docs/1.0/tutorial/">tutorial</a> and corresponding <a href="https://github.com/pallets/flask/tree/1.0/examples/tutorial">example</a> have been rewritten. They use a structured layout and go into more detail about each aspect in order to help new users avoid common issues and become comfortable with Flask.</li>
+</ul>
+<p>There are many more changes throughout the framework. <a href="http://flask.pocoo.org/docs/1.0/changelog/">Read the full changelog</a> to understand what changes may affect your code when upgrading.</p>
+<h2 id="json-security-fix">JSON Security Fix</h2><p>Flask previously decoded incoming JSON bytes using the content type of the request. Although JSON should only be encoded as UTF-8, Flask was more lenient. However, Python includes non-text related encodings that could result in unexpected memory use by a request.</p>
+<p>Flask will now detect the encoding of incoming JSON data as one of the supported UTF encodings, and will not allow arbitrary encodings from the request.</p>
+<h2 id="install-or-upgrade">Install or Upgrade</h2><p>Install from <a href="https://pypi.org/project/Flask/">PyPI</a> with pip:</p>
+<pre><code>pip install -U Flask
+</code></pre>
+<h2 id="get-involved">Get Involved</h2><p>Flask and the Pallets team depends on you, the community. Whether you report issues, write documentation, create patches, or answer questions, we appreciate all the help you provide. Check out the <a href="https://github.com/pallets/flask/blob/master/CONTRIBUTING.rst">contributing guide</a> to get started.</p>
+<h2 id="donate">Donate</h2><p>The Pallets organization has joined the Python Software Foundation's Fiscal Sponsorship program. We now accept donations through the PSF in order to support our efforts to maintain the projects and grow the community. <a href="https://psfmember.org/civicrm/contribute/transact?reset=1&amp;id=20">Click here to donate.</a></p>
+
+  </div>
+
+  
+    
+  <div class="blog-post">
+  
+    <h2><a href="/blog/flask-0-12-3-released/">Flask 0.12.3 Released</a></h2>
+  
+  <p class="meta">
+    written by
+    
+      <a href="https://twitter.com/davidism">David Lord</a>
+    
+    on 2018-04-26
+      in
+      
+        <a href="/blog/categories/releases/">Releases</a>
+      ,
+        <a href="/blog/categories/security/">Security</a>
+      
+    
+  </p>
+  <p>This release includes an important security fix for JSON and a minor backport for CLI support in PyCharm. It is provided for projects that cannot update to Flask 1.0 immediately. See the <a href="/blog/flask-1-0-released">1.0 announcement</a> and update to it instead if possible.</p>
+<h2 id="json-security-fix">JSON Security Fix</h2><p>Flask previously decoded incoming JSON bytes using the content type of the request. Although JSON should only be encoded as UTF-8, Flask was more lenient. However, Python includes non-text related encodings that could result in unexpected memory use by a request.</p>
+<p>Flask will now detect the encoding of incoming JSON data as one of the supported UTF encodings, and will not allow arbitrary encodings from the request.</p>
+<h2 id="upgrade">Upgrade</h2><p>Upgrade from <a href="https://pypi.org/project/Flask/">PyPI</a> with pip. Use a version identifier if you want to stay at 0.12:</p>
+<pre><code>pip install -U Flask==0.12.3
+</code></pre>
+<p>Or upgrade to 1.0:</p>
+<pre><code>pip install -U Flask
+</code></pre>
+
+  </div>
+
+  
+    
+  <div class="blog-post">
+  
+    <h2><a href="/blog/werkzeug-0-14-released/">Werkzeug 0.14 Released</a></h2>
+  
+  <p class="meta">
+    written by
+    
+      <a href="https://twitter.com/mitsuhiko">Armin Ronacher</a>
+    
+    on 2017-12-31
+      in
+      
+        <a href="/blog/categories/releases/">Releases</a>
+      
+    
+  </p>
+  <p>The Pallets team is pleased to release <a href="/p/werkzeug">Werkzeug</a> 0.14. Changes include:</p>
+<ul>
+<li>Improved the usefulness of <code>Request.application</code> by automatically handling HTTP exceptions.</li>
+<li>Added support for platforms that lack <code>SpooledTemporaryFile</code>. This primarily affects GAE users which were unable to use 0.13 due to this missing API.</li>
+<li>Add support for etag handling through if-match</li>
+<li>Added support for the SameSite cookie attribute along with better support for invalid cookies.</li>
+<li>Added a HTTP proxying middleware (<code>werkzeug.wsgi.ProxyMiddleware</code>)</li>
+<li>Various improvements for the reloader.</li>
+<li>The built-in HTTP server will no longer close a connection in cases
+where no HTTP body is expected (204, 204, HEAD requests etc.)</li>
+<li>Werkzeug will no longer send the content-length header on 1xx or
+204/304 responses.</li>
+<li>Added support for static weights in URL rules.</li>
+<li>Better handle some more complex reloader scenarios where sys.path
+contained non directory paths.</li>
+</ul>
+<p><a href="http://werkzeug.pocoo.org/docs/latest/changes/#version-0-14">Read the full changelog.</a></p>
+<h3 id="install-or-upgrade">Install or upgrade</h3><p>Install from <a href="https://pypi.org/project/Werkzeug/0.14/">PyPI</a> with pip:</p>
+<pre><code>pip install -U Werkzeug
+</code></pre>
+<h3 id="get-involved">Get Involved</h3><p>Werkzeug and the Pallets team depends on you, the community. Whether you report issues, write documentation, create patches, or answer questions, we appreciate all the help you provide. We updated the <a href="https://github.com/pallets/werkzeug/blob/master/CONTRIBUTING.rst">contributing guide</a> to help make it easier to get started.</p>
+
+  </div>
+
+  
+    
+  <div class="blog-post">
+  
+    <h2><a href="/blog/werkzeug-0-13-released/">Werkzeug 0.13 Released</a></h2>
+  
+  <p class="meta">
+    written by
+    
+      <a href="https://twitter.com/davidism">David Lord</a>
+    
+    on 2017-12-07
+      in
+      
+        <a href="/blog/categories/releases/">Releases</a>
+      
+    
+  </p>
+  <p>The Pallets team is pleased to release <a href="/p/werkzeug">Werkzeug</a> 0.13. Changes include:</p>
+<ul>
+<li><strong>Deprecated Python 2.6 and 3.3 support.</strong> The next version, 0.14, will remove support.</li>
+<li>The built-in development server supports receiving requests with <code>Transfer-Encoding: chunked</code>.</li>
+<li>Header options without an extended encoding can contain single quotes. For example, <code>filename=t'es't.txt</code> is now valid.</li>
+<li>Removed <code>werkzeug.script</code> in favor of <a href="/p/click">Click</a>.</li>
+</ul>
+<p><a href="http://werkzeug.pocoo.org/docs/latest/changes/#version-0-13">Read the full changelog.</a></p>
+<h3 id="install-or-upgrade">Install or upgrade</h3><p>Install from <a href="https://pypi.org/project/Werkzeug/0.13/">PyPI</a> with pip:</p>
+<pre><code>pip install -U Werkzeug
+</code></pre>
+<p>The PGP key ID used for this release is <a href="https://keybase.io/davidism">David Lord: 43368a7aa8cc5926</a>.</p>
+<h3 id="get-involved">Get Involved</h3><p>Werkzeug and the Pallets team depends on you, the community. Whether you report issues, write documentation, create patches, or answer questions, we appreciate all the help you provide. We updated the <a href="https://github.com/pallets/werkzeug/blob/master/CONTRIBUTING.rst">contributing guide</a> to help make it easier to get started.</p>
+
+  </div>
+
+  
+    
+  <div class="blog-post">
+  
+    <h2><a href="/blog/flask-werkzeug-0-12-2-security-release/">Security bugs on Windows servers: Flask 0.12.2 and Werkzeug 0.12.2 released</a></h2>
+  
+  <p class="meta">
+    written by
+    
+      <a href="https://twitter.com/untitaker">Markus Unterwaditzer</a>
+    
+    on 2017-05-16
+      in
+      
+        <a href="/blog/categories/releases/">Releases</a>
+      ,
+        <a href="/blog/categories/security/">Security</a>
+      
+    
+  </p>
+  <p>Flask 0.12.2 and Werkzeug 0.12.2 have been released. They contain the same
+<strong>security bugfix</strong> for the <code>safe_join</code> function in each package.</p>
+<p>The problem only occurs if you are running your application on a Windows
+server.</p>
+<h2 id="details">Details</h2><p><a href="https://twitter.com/davidism">David Lord</a> initially found this bug (thanks!)
+and disclosed it to the other maintainers in a private email:</p>
+<blockquote><p>While going through PR #2059 about safe_join, I looked up Python's ntpath.join
+and discovered a vulnerability that safe_join on Windows doesn't cover.</p>
+<p><a href="https://docs.python.org/3/library/os.path.html#os.path.join">https://docs.python.org/3/library/os.path.html#os.path.join</a>:
+"<code>os.path.join("c:", "foo")</code> represents a path relative to the current
+directory on drive C: <code>(c:foo)</code>"
+<br>
+<code>safe_join('\\root\\path', 'd:', 'test.txt')</code> would break out of the trusted
+root directory and instead take the test file relative to the cwd on the d
+drive.  This doesn't give completely arbitrary path access, since it's
+limited to the cwd, but it's still not good.</p>
+</blockquote>
+<p>For the application developer this means that endpoints using <code>safe_join</code> could
+potentially be used to disclose arbitrary files in the server processes'
+current working directory on Windows.</p>
+<h2 id="what-happens-next">What happens next</h2><p>We strongly recommend upgrading to Flask 0.12.2 and Werkzeug 0.12.2, as this
+bug has been fixed there (<a href="https://github.com/pallets/flask/pull/2284">Flask</a>,
+<a href="https://github.com/pallets/werkzeug/commit/2497866d7eafa64ca5eb4fb3d1747c05036bf318">Werkzeug</a>).</p>
+<p>A CVE has been requested on <code>Tue, 16 May 2017 06:51:09 +0000</code>, the CVE <code>CVE-2017-9088</code> was assigned.</p>
+
+  </div>
+
+  
+    
+  <div class="blog-post">
+  
+    <h2><a href="/blog/werkzeug-0-12-released/">Werkzeug 0.12 released</a></h2>
+  
+  <p class="meta">
+    written by
+    
+      <a href="https://twitter.com/untitaker">Markus Unterwaditzer</a>
+    
+    on 2017-03-10
+      in
+      
+        <a href="/blog/categories/releases/">Releases</a>
+      
+    
+  </p>
+  <p>We just released Werkzeug 0.12. Highlights from the changelog:</p>
+<h2 id="further-deprecation-of-werkzeug-s-script-module">Further deprecation of Werkzeug's <code>script</code> module</h2><p>Werkzeug's script module was deprecated since 2011. Deprecation slipped through
+the cracks, so we now additionally show large warnings at runtime. <a href="https://github.com/pallets/werkzeug/issues/1079">Head over
+to the bugtracker</a> for the
+rest of the plan.</p>
+<h2 id="defaults-for-password-hashing-changed">Defaults for password hashing changed</h2><p>Password hashing now <a href="https://github.com/pallets/werkzeug/pull/753">uses <code>sha256</code> by default instead of
+<code>sha1</code></a>. On a related note,
+certificates generated with the dev server are now <a href="https://github.com/pallets/werkzeug/pull/1004">signed with <code>sha256</code>
+instead of <code>md5</code></a>.</p>
+
+  </div>
+
+  
+    
+  <div class="blog-post">
+  
+    <h2><a href="/blog/jinja-2-9-released/">Jinja 2.9 Released</a></h2>
+  
+  <p class="meta">
+    written by
+    
+      <a href="https://twitter.com/mitsuhiko">Armin Ronacher</a>
+    
+    on 2017-01-07
+      in
+      
+        <a href="/blog/categories/releases/">Releases</a>
+      
+    
+  </p>
+  <p>After a long time of no changes a new release, 2.9 codename “Derivation” of the Jinja template engine for Python is out. This change is probably the biggest release in Jinja2's history and it requires a bit of explanation of why it happened and why it happened now. But first let's cover the big changes in it.</p>
+<h2 id="new-identifier-tracking">New Identifier Tracking</h2><p>This appears to be an under the hood change because it effectively just changes the internal algorithm that Jinja2 uses to map it's own scoping rules onto the Python interpreter's scoping rules but it has wide ranging consequences. The original tracking issue <a href="https://github.com/pallets/jinja/issues/19">goes back to 2011</a> and was created as a long running TODO item. There were a few reasons why it was implemented this way but over the years it became clearer and clearer that the method chosen for mapping identifiers is just causing too many issues. The reason it was not changed was that the worries were too big that people accidentally relied on such bugs.</p>
+<p>However with improved support for pinning to older versions of Python packages and the fact that people no longer use linux distribution provided packages much the worries about greater changes are heavily reduced. With Jinja 2.9 the identifier tracking was completely changed which should squash pretty much all the weird behaviors developers might have encountered and also enabled support for related improvements. In particular the new identifier tracking generalized the context behavior for includes and imports.</p>
+<p>In the ideal case you won't notice anything other than that some constructs are possible now that caused errors in the past.</p>
+<h2 id="python-3-feature-support">Python 3 Feature Support</h2><p>While Jinja2 supported Python 3 for years now it never really embraced functionality that the language provides on 3.x that it does not do on 2.x. Largely that is caused by the fact that we want templates to be compatible between 2.x and 3.x (this is true only for as long as template variables are restricted to ASCII characters). However 3.6 now added async generators which permits Jinja2 to fully support the <code>async</code> and <code>await</code> keywords on 3.6 and later.</p>
+<p>In particular it means that you can now return coroutines from functions passed to Jinja2 templates and the template engine will automatically await them. Likewise all filters were updated to work with iterators as well as async iterators alike.</p>
+<p>Additionally Jinja2 now emits <code>generator_stop</code> as a future flag which means that accidentally emitting <code>StopIteration</code> from a filter or other code will no longer cause the template to just stop rendering silently. This was enabled by <a href="https://www.python.org/dev/peps/pep-0479/">PEP 479</a>.</p>
+<h2 id="policy-framework">Policy Framework</h2><p>Jinja2 now has an internal policy configuration which permits one to centrally reconfigure behavior of filters and other things. While so far not much can be reconfigured it will greatly support future improvements. This also finally allows us to provide a default <code>tojson</code> filter which previously was only available through Flask or other frameworks. Through the policy configuration the particular form of JSON serialization can be customized and replaced.</p>
+<h2 id="full-changelog">Full Changelog</h2><ul>
+<li>Change cache key definition in environment. This fixes a performance
+regression introduced in 2.8.</li>
+<li>Added support for <code>generator_stop</code> on supported Python versions
+(Python 3.5 and later)</li>
+<li>Corrected a long standing issue with operator precedence of math operations
+not being what was expected.</li>
+<li>Added support for Python 3.6 async iterators through a new async mode.</li>
+<li>Added policies for filter defaults and similar things.</li>
+<li>urlize now sets "rel noopener" by default.</li>
+<li>Support attribute fallback for old-style classes in 2.x.</li>
+<li>Support toplevel set statements in extend situations.</li>
+<li>Restored behavior of Cycler for Python 3 users.</li>
+<li>Subtraction now follows the same behavior as other operators on undefined
+values.</li>
+<li><code>map</code> and friends will now give better error messages if you forgot to
+quote the parameter.</li>
+<li>Depend on MarkupSafe 0.23 or higher.</li>
+<li>Improved the <code>truncate</code> filter to support better truncation in case
+the string is barely truncated at all.</li>
+<li>Change the logic for macro autoescaping to be based on the runtime
+autoescaping information at call time instead of macro define time.</li>
+<li>Ported a modified version of the <code>tojson</code> filter from Flask to Jinja2
+and hooked it up with the new policy framework.</li>
+<li>Block sets are now marked <code>safe</code> by default.</li>
+<li>On Python 2 the asciification of ASCII strings can now be disabled with
+the <code>compiler.ascii_str</code> policy.</li>
+<li>Tests now no longer accept an arbitrary expression as first argument but
+a restricted one.  This means that you can now properly use multiple
+tests in one expression without extra parentheses.  In particular you can
+now write <code>foo is divisibleby 2 or foo is divisibleby 3</code>
+as you would expect.</li>
+<li>Greatly changed the scoping system to be more consistent with what template
+designers and developers expect.  There is now no more magic difference
+between the different include and import constructs.  Context is now always
+propagated the same way.  The only remaining differences is the defaults
+for <code>with context</code> and <code>without context</code>.</li>
+<li>The <code>with</code> and <code>autoescape</code> tags are now built-in.</li>
+<li>Added the new <code>select_autoescape</code> function which helps configuring better
+autoescaping easier.</li>
+</ul>
+<h2 id="why-an-update-now?">Why an Update now?</h2><p>One of the reasons Jinja2 was lying largely dormant is that it's always scary to touch something so many people use. While bugs were known for quite some time it requires careful changes to not change all the template code out there. In particular once salt and ansible started using Jinja it became a big emotional burden to do changes on it.</p>
+<p>However it turns out that emotional burden does not get smaller for as long as those bugs are in there. Going in and cleaning up the behavior actually turns out to be healthier in the long run. Now even if this release introduces regressions in behavior, the internal code quality is much improved and reasoning about the runtime and compiler is a lot easier now.</p>
+<p>On a personal note I'm happy to see how popular Jinja has become and I hope that with this release it becomes more enjoyable to write Jinja templates.</p>
+<p><em>Aside: if you are downloading Jinja2 you will actually pull 2.9.1 because there was a regression in 2.9 that was only found after releasing it. In an ironic twist it was found when this website attempted to render a complex template with Jinja 2.9 on the build server.</em></p>
+
+  </div>
+
+  
+    
+  <div class="blog-post">
+  
+    <h2><a href="/blog/jinja-2-8-1-released/">Jinja 2.8.1 Security Release</a></h2>
+  
+  <p class="meta">
+    written by
+    
+      <a href="https://twitter.com/mitsuhiko">Armin Ronacher</a>
+    
+    on 2016-12-29
+      in
+      
+        <a href="/blog/categories/releases/">Releases</a>
+      ,
+        <a href="/blog/categories/security/">Security</a>
+      
+    
+  </p>
+  <p>We just pushed out a new release for Jinja (2.8.1) which includes a security related
+fix. If you are using the Jinja2 sandbox you are encouraged to upgrade or alternatively
+manually further lock down the sandbox.</p>
+<p>The core of the issue is that Python's string format method that was added to strings
+can be used to discover potentially dangerous values including configuration values:</p>
+<div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">config</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;SECRET_KEY&#39;</span><span class="p">:</span> <span class="s1">&#39;12345&#39;</span><span class="p">}</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">class</span> <span class="nc">User</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+<span class="gp">... </span> <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">):</span>
+<span class="gp">... </span>  <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">name</span>
+<span class="gp">...</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">user</span> <span class="o">=</span> <span class="n">User</span><span class="p">(</span><span class="s1">&#39;joe&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="s1">&#39;</span><span class="si">{0.__class__.__init__.__globals__[config]}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">user</span><span class="p">)</span>
+<span class="go">&quot;{&#39;SECRET_KEY&#39;: &#39;12345&#39;}&quot;</span>
+</pre></div>
+<p>For this reason <em>you must never let user supply format strings</em> in raw Python as its
+too easy to escape them. However specifically for the Jinja2 sandbox we changed the
+behavior now that we're using the same sandboxing functionality that Jinja2 uses
+for its own runtime also for Python string formatting.</p>
+<p>This means that with 2.8.1 and higher templates from sandboxed environments will
+intercept format strings the same way as with normal cases:</p>
+<div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">jinja2.sandbox</span> <span class="kn">import</span> <span class="n">SandboxedEnvironment</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">env</span> <span class="o">=</span> <span class="n">SandboxedEnvironment</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">class</span> <span class="nc">User</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+<span class="gp">... </span> <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">):</span>
+<span class="gp">... </span>  <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">name</span>
+<span class="gp">...</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">t</span> <span class="o">=</span> <span class="n">env</span><span class="o">.</span><span class="n">from_string</span><span class="p">(</span>
+<span class="gp">... </span> <span class="s1">&#39;{{ &quot;</span><span class="si">{0.__class__.__init__.__globals__}</span><span class="s1">&quot;.format(user) }}&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">t</span><span class="o">.</span><span class="n">render</span><span class="p">(</span><span class="n">user</span><span class="o">=</span><span class="n">User</span><span class="p">(</span><span class="s1">&#39;joe&#39;</span><span class="p">))</span>
+<span class="gt">Traceback (most recent call last):</span>
+  <span class="c">...</span>
+<span class="gr">jinja2.exceptions.SecurityError</span>: <span class="n">...</span>
+</pre></div>
+<p>If you don't want or you cannot upgrade Jinja2, you can override the <code>is_safe_attribute</code>
+method on the sandbox and explicitly disallow all <code>format</code> attributes on strings.</p>
+<p>Thank you to <a href="https://twitter.com/odony">Olivier Dony</a> for reporting the issue.</p>
+
+  </div>
+
+  
+    
+  <div class="blog-post">
+  
+    <h2><a href="/blog/flask-0-12-released/">Flask 0.12 released</a></h2>
+  
+  <p class="meta">
+    written by
+    
+      <a href="https://twitter.com/untitaker">Markus Unterwaditzer</a>
+    
+    on 2016-12-21
+      in
+      
+        <a href="/blog/categories/releases/">Releases</a>
+      
+    
+  </p>
+  <p>Flask 0.12 has been released. This is not as big a step as 0.11 has been, the only intentionally backwards-incompatible change is with regards to <code>send_file</code>'s behavior, which, when invoked as <code>send_file(f)</code> with <code>f</code> being a file-like object, no longer guesses the MIME-type from <code>f.name</code>. You have to pass a filepath instead.</p>
+<p>Special thanks to <a href="https://github.com/wgwz">Kyle Lawlor</a> for fixing up most documentation after the <code>flask</code> CLI got introduced.</p>
+<h2 id="changelog">Changelog</h2><ul>
+<li>the cli command now responds to <code>--version</code>.</li>
+<li>Mimetype guessing and ETag generation for file-like objects in <code>send_file</code>
+has been removed, as per issue <code>#104</code>.  See pull request <code>#1849</code>.</li>
+<li>Mimetype guessing in <code>send_file</code> now fails loudly and doesn't fall back to
+<code>application/octet-stream</code>. See pull request <code>#1988</code>.</li>
+<li>Make <code>flask.safe_join</code> able to join multiple paths like <code>os.path.join</code>
+(pull request <code>#1730</code>).</li>
+<li>Revert a behavior change that made the dev server crash instead of returning
+a Internal Server Error (pull request <code>#2006</code>).</li>
+<li>Correctly invoke response handlers for both regular request dispatching as
+well as error handlers.</li>
+<li>Disable logger propagation by default for the app logger.</li>
+<li>Add support for range requests in <code>send_file</code>.</li>
+<li><code>app.test_client</code> includes preset default environment, which can now be
+directly set, instead of per <code>client.get</code>.</li>
+</ul>
+
+  </div>
+
+  
+
+  
+  <div class="pagination">
+    
+      <a href="/blog/page/2/">&laquo; Previous</a>
+    
+    | 3 |
+    
+      <a href="/blog/page/4/">Next &raquo;</a>
+    
+  </div>
+
+
+    </div>
+  </div>
+
+    </div>
+    
+  </div>
+
+  
+  <div class="bottomsummary">
+    <div class="container">
+    </div>
+  </div>
+  
+
+  
+  <footer>
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-3 icon-bar">
+          <a href="https://github.com/pallets/" title="Pallets on GitHub"
+            ><i class="fa fa-github"></i></a>
+          <a href="https://twitter.com/PalletsTeam/" title="Pallets on Twitter"
+            ><i class="fa fa-twitter"></i></a>
+          <a href="https://github.com/pallets/website/tree/master/content/blog/contents.lr" title="View source for this page"><i class="fa fa-code"></i></a>
+        </div>
+        <div class="col-sm-9">
+          <a href="/license/">License &amp; Copyright</a> •
+          <a href="/contact/">Contact</a> •
+          Made with <i class="fa fa-fw fa-heart" title="Heart"><span hidden>Heart</span></i>
+          and <a href="https://www.getlektor.com/">Lektor</a> all around the World
+        </div>
+      </div>
+    </div>
+  </footer>
+  
+  <script async defer id="github-bjs" src="https://buttons.github.io/buttons.js"></script>
+</body>

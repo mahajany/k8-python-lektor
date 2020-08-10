@@ -1,0 +1,413 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <id>urn:uuid:f4141e93-3631-33af-8ec0-b4847d06b9a5</id>
+  <title>Blog — Pallets Project</title>
+  <updated>2020-08-10T16:17:59.585682+00:00</updated>
+  <link href="https://palletsprojects.com/blog/"/>
+  <link href="https://palletsprojects.com/blog/feed.xml" rel="self"/>
+  <generator uri="https://lkiesow.github.io/python-feedgen" version="0.9.0">python-feedgen</generator>
+  <entry>
+    <id>urn:uuid:8fa142f2-cfeb-3f99-87ab-2c72777cc8d9</id>
+    <title>Jinja 2.10.1 Security Release</title>
+    <updated>2019-04-06T00:00:00+00:00</updated>
+    <author>
+      <name>David Lord</name>
+    </author>
+    <content type="html">&lt;p&gt;Jinja 2.10.1 has been released and includes a security-related fix. If
+you are using the Jinja &lt;a href="http://jinja.pocoo.org/docs/2.10/sandbox/"&gt;sandboxed environment&lt;/a&gt; you are encouraged to
+upgrade.&lt;/p&gt;
+&lt;p&gt;MITRE has assigned &lt;a href="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-10906"&gt;CVE-2019-10906&lt;/a&gt; to this issue.&lt;/p&gt;
+&lt;p&gt;Thank you to &lt;a href="https://brianwel.ch"&gt;Brian Welch&lt;/a&gt; for responsibly reporting the issue, and to
+&lt;a href="https://twitter.com/mitsuhiko"&gt;Armin Ronacher&lt;/a&gt; for writing the fix.&lt;/p&gt;
+&lt;p&gt;The sandbox is used to restrict what code can be evaluated when
+rendering untrusted, user-provided templates. Due to the way string
+formatting works in Python, the &lt;code&gt;str.format_map&lt;/code&gt; method could be used to
+escape the sandbox.&lt;/p&gt;
+&lt;p&gt;This issue was previously addressed for the &lt;code&gt;str.format&lt;/code&gt; method in
+&lt;a href="/blog/jinja-281-released/"&gt;Jinja 2.8.1&lt;/a&gt;, which discusses the issue in detail. However, the
+less-common &lt;code&gt;str.format_map&lt;/code&gt; method was overlooked. This release applies
+the same sandboxing to both methods.&lt;/p&gt;
+&lt;p&gt;If you cannot upgrade Jinja, you can override the &lt;code&gt;is_safe_attribute&lt;/code&gt;
+method on the sandbox and explicitly disallow the &lt;code&gt;format_map&lt;/code&gt;
+method on string objects.&lt;/p&gt;
+&lt;h2 id="reporting-security-issues"&gt;Reporting Security Issues&lt;/h2&gt;&lt;p&gt;If you think you have discovered a security issue in Jinja or another of
+the Pallets projects, please email &lt;a href="mailto:security@palletsprojects.com"&gt;security@palletsprojects.com&lt;/a&gt; with
+details.&lt;/p&gt;
+</content>
+    <link href="https://palletsprojects.com/blog/jinja-2-10-1-released/" rel="alternate"/>
+  </entry>
+  <entry>
+    <id>urn:uuid:ded2c442-4ef6-3de3-a924-7cecf2968a83</id>
+    <title>Flask-SQLAlchemy 2.4.0 Released</title>
+    <updated>2019-04-24T00:00:00+00:00</updated>
+    <author>
+      <name>Randy Syring</name>
+    </author>
+    <content type="html">&lt;p&gt;Flask-SQLAlchemy 2.4.0. has been released. The
+&lt;a href="https://flask-sqlalchemy.palletsprojects.com/en/2.x/changelog/#version-2-4-0"&gt;changelog&lt;/a&gt;
+lists the changes in detail, which include:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Make SQLAlchemy engine configuration more flexible&lt;/li&gt;
+&lt;li&gt;Address SQLAlchemy 1.3 deprecations&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="deprecation-warnings"&gt;Deprecation Warnings&lt;/h2&gt;&lt;p&gt;New deprecation warnings have been added for configuration and &lt;code&gt;__init__&lt;/code&gt; params that are no longer
+needed due to the engine configuration now being more customizable.  Those options will be removed
+in release 3.0.&lt;/p&gt;
+&lt;h2 id="install-or-upgrade"&gt;Install or Upgrade&lt;/h2&gt;&lt;p&gt;Install from &lt;a href="https://pypi.org/project/Flask-SQLAlchemy/"&gt;PyPI&lt;/a&gt; with pip:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;pip install -U Flask-SQLAlchemy
+&lt;/code&gt;&lt;/pre&gt;
+</content>
+    <link href="https://palletsprojects.com/blog/flask-sqlalchemy-2-4-0-released/" rel="alternate"/>
+  </entry>
+  <entry>
+    <id>urn:uuid:c44e8bda-488a-34e0-a832-af70bd580e62</id>
+    <title>Werkzeug 0.15.3 Released</title>
+    <updated>2019-05-14T00:00:00+00:00</updated>
+    <author>
+      <name>David Lord</name>
+    </author>
+    <content type="html">&lt;p&gt;Werkzeug 0.15.3 has been released, followed closely by 0.15.4. Both fix
+bugs and compatibility issues. The &lt;a href="https://werkzeug.palletsprojects.com/en/0.15.x/changes/#version-0-15-3"&gt;changelog&lt;/a&gt; lists the changes in
+detail, which include:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;The debugger pin is unique per Docker container.&lt;/li&gt;
+&lt;li&gt;Fix issues with the arguments to the &lt;code&gt;Unauthorized&lt;/code&gt; HTTP exception.&lt;/li&gt;
+&lt;li&gt;Fix &lt;code&gt;ProfilerMiddleware&lt;/code&gt; filenames, and get &lt;code&gt;LintMiddleware&lt;/code&gt; working
+on Python 3.&lt;/li&gt;
+&lt;li&gt;Bytes passed to URLs will be correctly decoded rather than having a
+&lt;code&gt;b&lt;/code&gt; prefix.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="debugger-pin-security"&gt;Debugger Pin Security&lt;/h2&gt;&lt;p&gt;A minor security issue was addressed in this release. The debugger
+generates a unique pin per host to prevent unauthorized code execution.
+However, in Docker this pin would be identical across all containers.
+This release ensures each container uses a unique pin.&lt;/p&gt;
+&lt;p&gt;Thank you to Nikita Tikhomirov for responsibly reporting the issue. If
+you think you have discovered a security issue in Werkzeug or another of
+the Pallets projects, please email &lt;a href="mailto:security@palletsprojects.com"&gt;security@palletsprojects.com&lt;/a&gt; with
+details.&lt;/p&gt;
+&lt;h2 id="install-or-upgrade"&gt;Install or Upgrade&lt;/h2&gt;&lt;p&gt;Install from &lt;a href="https://pypi.org/project/Werkzeug/"&gt;PyPI&lt;/a&gt; with pip:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;pip install -U Werkzeug
+&lt;/code&gt;&lt;/pre&gt;
+</content>
+    <link href="https://palletsprojects.com/blog/werkzeug-0-15-3-released/" rel="alternate"/>
+  </entry>
+  <entry>
+    <id>urn:uuid:eb87d563-b7db-3e16-8180-39320fe4edc2</id>
+    <title>Flask 1.1 Released</title>
+    <updated>2019-07-04T00:00:00+00:00</updated>
+    <author>
+      <name>David Lord</name>
+    </author>
+    <content type="html">&lt;p&gt;The Pallets team is pleased to release &lt;a href="/p/flask/"&gt;Flask&lt;/a&gt; 1.1. The
+latest version is 1.1.1. Version 1.0.4 was also released.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Drop support for Python 3.4.&lt;/li&gt;
+&lt;li&gt;Bump minimum Werkzeug version to 0.15.&lt;/li&gt;
+&lt;li&gt;The way error handlers for &lt;code&gt;InternalServerError&lt;/code&gt; and &lt;code&gt;500&lt;/code&gt; work has
+been made more consistent. See below for more information.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;app.logger&lt;/code&gt; once again takes the same name as &lt;code&gt;app.name&lt;/code&gt;, reverting
+1.0.x's behavior of hard-coding &lt;code&gt;"flask.app"&lt;/code&gt;. See below for more
+information.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;jsonify&lt;/code&gt; supports Python's &lt;a href="https://docs.python.org/3/library/dataclasses.html"&gt;&lt;code&gt;dataclasses&lt;/code&gt;&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;Returning a &lt;code&gt;dict&lt;/code&gt; from a view function will produce a JSON
+response. This makes it even easier to get started building an API.&lt;/li&gt;
+&lt;li&gt;A clearer error message is shown when a view returns an unsupported
+type.&lt;/li&gt;
+&lt;li&gt;URL routing is performed after the request context is pushed. This
+allows custom URL converters to access &lt;code&gt;current_app&lt;/code&gt; and &lt;code&gt;request&lt;/code&gt;.
+This makes it possible to implement converters such as one that
+queries the database for a model based on the ID in the URL.&lt;/li&gt;
+&lt;li&gt;CLI commands can be registered with blueprints using the new
+&lt;code&gt;bp.cli&lt;/code&gt; attribute. These will be available as nested commands, for
+example &lt;code&gt;flask user create&lt;/code&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;a href="https://flask.palletsprojects.com/en/1.1.x/changelog/"&gt;&lt;strong&gt;Read the changelog&lt;/strong&gt;&lt;/a&gt;
+for the full list of changes. Be sure to check the notes for the 1.0.x
+versions as well.&lt;/p&gt;
+&lt;h2 id="change-to-error-handling"&gt;Change to Error Handling&lt;/h2&gt;&lt;p&gt;Prior to 1.0, unhandled errors caused a generic &lt;code&gt;InternalServerError&lt;/code&gt; to
+be returned, but only the handler for &lt;code&gt;500&lt;/code&gt; was looked up for that, and
+the original error was passed to it. 1.0 made &lt;code&gt;500&lt;/code&gt; an alias for
+&lt;code&gt;InternalServerError&lt;/code&gt;, but these inconsistencies caused confusion over
+what errors were passed to what handlers.&lt;/p&gt;
+&lt;p&gt;As of 1.1, an error handler registered for &lt;code&gt;InternalServerError&lt;/code&gt; or
+&lt;code&gt;500&lt;/code&gt; means the same thing in all cases. It will always be passed an
+instance of &lt;code&gt;InternalServerError&lt;/code&gt;, even if it was caused by an unhandled
+error of another type. The original error is available as
+&lt;code&gt;e.original_exception&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;If your project uses a &lt;code&gt;500&lt;/code&gt; error handler that expects any exception to
+be passed to it, it should use &lt;code&gt;e.original_exception&lt;/code&gt; instead of &lt;code&gt;e&lt;/code&gt;.&lt;/p&gt;
+&lt;h2 id="change-to-logging"&gt;Change to Logging&lt;/h2&gt;&lt;p&gt;In 1.0, Flask's logging setup was greatly simplified. Part of that was
+hard-coding the name &lt;code&gt;"flask.app"&lt;/code&gt; for the logger. However, that made it
+less clear whether Flask or the app was doing the logging, and made it
+impossible to distinguish between multiple apps in logs.&lt;/p&gt;
+&lt;p&gt;As of 1.1, &lt;code&gt;app.logger&lt;/code&gt; again takes the same name as &lt;code&gt;app.name&lt;/code&gt;. Flask
+will warn you if it detects logging configuration for &lt;code&gt;"flask"&lt;/code&gt; or
+&lt;code&gt;"flask.app"&lt;/code&gt; so you can rename that configuration appropriately.&lt;/p&gt;
+&lt;p&gt;For example, if your project is named &lt;code&gt;example.py&lt;/code&gt; and you initialize
+your Flask app as &lt;code&gt;Flask(__name__)&lt;/code&gt;, then the logger will be named
+&lt;code&gt;"example"&lt;/code&gt;.&lt;/p&gt;
+&lt;h2 id="install-or-upgrade"&gt;Install or Upgrade&lt;/h2&gt;&lt;p&gt;Install from &lt;a href="https://pypi.org/project/Flask/"&gt;PyPI&lt;/a&gt; with pip:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;pip install -U Flask
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id="donate"&gt;Donate&lt;/h2&gt;&lt;p&gt;Pallets now accepts donations through the PSF in order to support our
+efforts to maintain the projects and grow the community. We greatly
+appreciate any support you can provide.
+&lt;a href="/donate"&gt;&lt;strong&gt;Click here to donate.&lt;/strong&gt;&lt;/a&gt;&lt;/p&gt;
+</content>
+    <link href="https://palletsprojects.com/blog/flask-1-1-released/" rel="alternate"/>
+  </entry>
+  <entry>
+    <id>urn:uuid:ebfe0c3d-2300-303e-bdc8-67f84693d9ff</id>
+    <title>Werkzeug 0.15.5 Released</title>
+    <updated>2019-07-17T00:00:00+00:00</updated>
+    <author>
+      <name>David Lord</name>
+    </author>
+    <content type="html">&lt;p&gt;Werkzeug 0.15.5 has been released, containing bug and security fixes.
+The &lt;a href="https://werkzeug.palletsprojects.com/en/0.15.x/changes/#version-0-15-5"&gt;changelog&lt;/a&gt; lists the changes in detail, which include:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;SharedDataMiddleware&lt;/code&gt; safely handles drive names in paths on Windows.&lt;/li&gt;
+&lt;li&gt;The reloader no longer causes an &lt;code&gt;Exec format error&lt;/code&gt; in many common
+situations.&lt;/li&gt;
+&lt;li&gt;The reloader works around an issue when using the pydev debugger.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="security-fix-for-shareddatamiddleware-on-windows"&gt;Security fix for &lt;code&gt;SharedDataMiddleware&lt;/code&gt; on Windows&lt;/h2&gt;&lt;p&gt;Prior to 0.15.5, it was possible for a third party to potentially access
+arbitrary files when the application used &lt;code&gt;SharedDataMiddleware&lt;/code&gt; on
+Windows. This issue was assigned &lt;a href="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-14322"&gt;CVE-2019-14322&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Due to the way Python's &lt;code&gt;os.path.join()&lt;/code&gt; function works on Windows, a
+path segment with a drive name will change the drive of the final path.
+This was &lt;a href="/blog/flask-werkzeug-0-12-2-security-release/"&gt;previously addressed&lt;/a&gt; in the &lt;code&gt;safe_join()&lt;/code&gt; function in
+&lt;a href="/blog/flask-werkzeug-0-12-2-security-release/"&gt;Werkzeug 0.12.2&lt;/a&gt;, but &lt;code&gt;SharedDataMiddleware&lt;/code&gt; used a separate
+implementation and so was not secured by the previous fix.&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;SharedDataMiddlware&lt;/code&gt; now uses &lt;code&gt;safe_join()&lt;/code&gt; when fetching requested
+files. Projects using &lt;code&gt;SharedDataMiddleware&lt;/code&gt; on Windows should update
+as soon as possible to receive the fix.&lt;/p&gt;
+&lt;p&gt;Thank you to &lt;a href="mailto:byemre.ovunc@gmail.com"&gt;Emre Övünç&lt;/a&gt; and &lt;a href="mailto:security@odoo.com"&gt;Olivier Dony&lt;/a&gt; for responsibly
+reporting the issue. If you think you have discovered a security issue
+in Werkzeug or another of the Pallets projects, please email
+&lt;a href="mailto:security@palletsprojects.com"&gt;security@palletsprojects.com&lt;/a&gt; with details.&lt;/p&gt;
+&lt;h2 id="install-or-upgrade"&gt;Install or Upgrade&lt;/h2&gt;&lt;p&gt;Install from &lt;a href="https://pypi.org/project/Werkzeug/"&gt;PyPI&lt;/a&gt; with pip:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;pip install -U Werkzeug
+&lt;/code&gt;&lt;/pre&gt;
+</content>
+    <link href="https://palletsprojects.com/blog/werkzeug-0-15-5-released/" rel="alternate"/>
+  </entry>
+  <entry>
+    <id>urn:uuid:ab18bbfc-1c8e-39a9-8580-561c5054b1b1</id>
+    <title>Werkzeug 0.16.0 Released</title>
+    <updated>2019-09-19T00:00:00+00:00</updated>
+    <author>
+      <name>David Lord</name>
+    </author>
+    <content type="html">&lt;p&gt;Werkzeug 0.16.0 has been released. The only change is that most of the
+top-level attributes in the &lt;code&gt;werkzeug&lt;/code&gt; module are now deprecated, and
+will be removed in 1.0.0.&lt;/p&gt;
+&lt;p&gt;For example, instead of &lt;code&gt;import werkzeug; werkzeug.url_quote&lt;/code&gt;, do
+&lt;code&gt;from werkzeug.urls import url_quote&lt;/code&gt;. If you are using these imports in
+your project, a deprecation warning will show the correct import to use.
+&lt;code&gt;werkzeug.exceptions&lt;/code&gt; and &lt;code&gt;werkzeug.routing&lt;/code&gt; should also be imported
+instead of accessed, but for technical reasons can’t show a warning.&lt;/p&gt;
+&lt;p&gt;These imports were supported by patching the &lt;code&gt;werkzeug&lt;/code&gt; module to
+support lazy imports, but the implementation added complexity, and there
+was no clear design reason why some things were available and some
+weren't. It also masked some circular dependency issues. IDEs like
+PyCharm didn't know those lazy imports existed and were already
+correctly using the full imports.&lt;/p&gt;
+</content>
+    <link href="https://palletsprojects.com/blog/werkzeug-0-16-0-released/" rel="alternate"/>
+  </entry>
+  <entry>
+    <id>urn:uuid:08d31676-57c2-38a1-9e3d-4ccfbe352e91</id>
+    <title>Ending Python 2 Support</title>
+    <updated>2019-12-17T00:00:00+00:00</updated>
+    <author>
+      <name>David Lord</name>
+    </author>
+    <content type="html">&lt;p&gt;Upstream support for Python 2.7 is ending on &lt;a href="https://www.python.org/dev/peps/pep-0373/"&gt;January 1, 2020&lt;/a&gt;.
+Pallets is joining the &lt;a href="https://python3statement.org/"&gt;community of open source projects&lt;/a&gt;
+ending support for Python 2 at that time. Our statement and support plan
+are based on &lt;a href="https://docs.pytest.org/en/5.3.2/py27-py34-deprecation.html"&gt;PyTest's announcement&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;We will be dropping support for Python 2.7 as well as Python 3.5 and
+below, as their support windows have ended or will end around the same
+time. Future releases of each Pallets project will only support Python
+versions still supported upstream, which can be found in the
+&lt;a href="https://devguide.python.org/#status-of-python-branches"&gt;Python Developer's Guide&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;The last version branch of each core project to support Python 2.7
+and Python 3.5 are:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Flask 1.1.x&lt;/li&gt;
+&lt;li&gt;Werkzeug 1.0.x&lt;/li&gt;
+&lt;li&gt;Click 7.x&lt;/li&gt;
+&lt;li&gt;Jinja 2.11.x&lt;/li&gt;
+&lt;li&gt;ItsDangerous 1.1.x&lt;/li&gt;
+&lt;li&gt;MarkupSafe 1.1.x&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Each project will receive a major version bump to indicate support
+for only 3.6+:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Flask 2.0&lt;/li&gt;
+&lt;li&gt;Werkzeug 2.0&lt;/li&gt;
+&lt;li&gt;Click 8.0&lt;/li&gt;
+&lt;li&gt;Jinja 3.0&lt;/li&gt;
+&lt;li&gt;ItsDangerous 2.0&lt;/li&gt;
+&lt;li&gt;MarkupSafe 2.0&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Thanks to the &lt;code&gt;python_requires&lt;/code&gt; package metadata, Python 2.7 and
+3.5 users with a modern pip version will install the last supported
+version automatically even if later versions are available.&lt;/p&gt;
+&lt;p&gt;The team will no longer backport patches for unsupported versions, but
+the branches will continue to exist. The team will be happy to
+accept patches contributed by the community for any severe security and
+usability issues until mid-2020.&lt;/p&gt;
+&lt;p&gt;We made this decision based on multiple factors. Foremost is ease of
+community contribution and maintainer availability. As time goes on,
+fewer contributors have used or are familiar with the differences
+between Python 2 and 3. Contributors and maintainers must keep track of
+an ever growing list of obscure compatibility issues and workarounds,
+and cannot use many modern features.&lt;/p&gt;
+&lt;p&gt;Over the last two years, we've talked to many developers and teams at
+conferences and meetups and heard overwhelming support for the move to
+Python 3. This is backed up by data collected from our community in a
+survey we ran during January 2019, with 92% of respondents already using
+or actively upgrading to Python 3. The &lt;a href="https://www.jetbrains.com/research/python-developers-survey-2018/#python-3-adoption"&gt;PSF developer survey&lt;/a&gt; and
+PyPI statistics report similar majorities and show adoption continuing
+to increase.&lt;/p&gt;
+&lt;p&gt;Thank you to everyone in the community for your support, and to everyone
+who has made this transition a reality. We look forward to continuing
+to develop the Pallets projects with you!&lt;/p&gt;
+</content>
+    <link href="https://palletsprojects.com/blog/ending-python2-support/" rel="alternate"/>
+  </entry>
+  <entry>
+    <id>urn:uuid:3869138b-d143-3f87-a3db-9da71be68b76</id>
+    <title>Jinja 2.11.0 Released</title>
+    <updated>2020-01-27T00:00:00+00:00</updated>
+    <author>
+      <name>David Lord</name>
+    </author>
+    <content type="html">&lt;p&gt;The Pallets team is pleased to release &lt;a href="/p/flask/"&gt;Jinja&lt;/a&gt; 2.11.0.
+&lt;a href="https://jinja.palletsprojects.com/en/2.11.x/changelog/#version-2-11-0"&gt;Read the changelog&lt;/a&gt;
+for the full list of changes. Some of the bigger changes include:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Drop support for Python 2.6, 3.3, and 3.4. This will be the last
+version to support Python 2.7 and 3.5.&lt;/li&gt;
+&lt;li&gt;A new &lt;code&gt;jinja2.ext.debug&lt;/code&gt; extension adds a &lt;code&gt;{% debug %}&lt;/code&gt; tag to
+quickly dump the current template context.&lt;/li&gt;
+&lt;li&gt;A new &lt;code&gt;ChainableUndefined&lt;/code&gt; type allows silently ignoring attribute
+access on undefined variables.&lt;/li&gt;
+&lt;li&gt;Loop context variables like &lt;code&gt;loop.length&lt;/code&gt; and &lt;code&gt;loop.nextitem&lt;/code&gt; work
+better in both sync and async environments.&lt;/li&gt;
+&lt;li&gt;Improved compile and runtime performance.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="version-3.0-coming-soon"&gt;Version 3.0 Coming Soon&lt;/h2&gt;&lt;p&gt;As outlined in &lt;a href="/blog/ending-python2-support"&gt;Ending Python 2 Support&lt;/a&gt;,
+2.11.x will be the last version to support Python 2.7 and 3.5. The next
+version will be 3.0 and will support Python 3.6 and newer.&lt;/p&gt;
+&lt;p&gt;The package name will remain "Jinja2" and imports will remain &lt;code&gt;jinja2&lt;/code&gt;.
+"Jinja2 3.0" looks a little weird, but given the years of community
+momentum behind the name, we concluded it was less disruptive to keep it
+as-is.&lt;/p&gt;
+&lt;h2 id="install-or-upgrade"&gt;Install or Upgrade&lt;/h2&gt;&lt;p&gt;Install from &lt;a href="https://pypi.org/project/Jinja2/"&gt;PyPI&lt;/a&gt; with pip:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;pip install -U Jinja2
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id="donate-to-support-pallets"&gt;Donate to Support Pallets&lt;/h2&gt;&lt;p&gt;The Pallets organization accepts donations as part of the non-profit
+Python Software Foundation (PSF). Donations through the PSF support our
+efforts to maintain the projects and grow the community.&lt;/p&gt;
+&lt;p&gt;&lt;a href="/donate"&gt;Click here to donate. ❤&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id="for-enterprise"&gt;For Enterprise&lt;/h2&gt;&lt;p&gt;The Pallets team and thousands of other packages are working with
+Tidelift to deliver commercial support and maintenance for the open
+source dependencies you use to build your applications. Save time,
+reduce risk, and improve code health, while paying the maintainers of
+the exact dependencies you use.&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://tidelift.com/subscription/pkg/pypi-jinja2?utm_source=pypi-jinja2&amp;amp;utm_medium=referral&amp;amp;utm_campaign=enterprise"&gt;Learn more.&lt;/a&gt;&lt;/p&gt;
+</content>
+    <link href="https://palletsprojects.com/blog/jinja-2-11-0-released/" rel="alternate"/>
+  </entry>
+  <entry>
+    <id>urn:uuid:df86cfec-edf9-3349-af99-3bac9d8eb158</id>
+    <title>Werkzeug 1.0.0 Released</title>
+    <updated>2020-02-06T00:00:00+00:00</updated>
+    <author>
+      <name>David Lord</name>
+    </author>
+    <content type="html">&lt;p&gt;The Pallets team is pleased to release Werkzeug 1.0. Werkzeug is the
+low-level WSGI and HTTP toolkit that powers Flask. It's been almost 13
+years since the first commit, and this milestone for the project brings
+many fixes and changes. &lt;a href="https://werkzeug.palletsprojects.com/en/1.0.x/changes/#version-1-0-0"&gt;Read the full changelog&lt;/a&gt;
+to understand what may affect your code when upgrading.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Drop support for Python 3.4. This will be the last version to
+support Python 2.7 and 3.5.&lt;/li&gt;
+&lt;li&gt;Remove most top-level attributes provided by the &lt;code&gt;werkzeug&lt;/code&gt; module
+in favor of direct imports. If you haven't already, use
+&lt;a href="/blog/werkzeug-0-16-0-released"&gt;version 0.16&lt;/a&gt; first to see
+deprecation warnings while upgrading.&lt;/li&gt;
+&lt;li&gt;Cookies support the &lt;code&gt;samesite='None'&lt;/code&gt; option. Cookies are parsed
+as a &lt;code&gt;MultiDict&lt;/code&gt; instead of overwriting repeated keys.&lt;/li&gt;
+&lt;li&gt;The development server supports 2-way TLS, making it easier to
+develop applications that inspect client certificates.&lt;/li&gt;
+&lt;li&gt;When building URLs with host matching, the current host is accounted
+for when deciding what rule to build.&lt;/li&gt;
+&lt;li&gt;When defining and matching URL rules, consecutive slashes are merged
+by default to match the behavior of common HTTP servers.&lt;/li&gt;
+&lt;li&gt;The &lt;code&gt;Accept&lt;/code&gt; header preserves order for tags with equal quality and
+considers options on each value. The  &lt;code&gt;Accept-Language&lt;/code&gt; header can
+match the primary tag if the specific value is not present.&lt;/li&gt;
+&lt;li&gt;Added CORS header attributes to &lt;code&gt;Request&lt;/code&gt; and &lt;code&gt;Response&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;A URL rule can be marked as a &lt;code&gt;websocket&lt;/code&gt;, in which case it will
+only match for &lt;code&gt;wss://&lt;/code&gt; requests. This allows async web frameworks
+to use Werkzeug for routing.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="version-2.0-coming-soon"&gt;Version 2.0 Coming Soon&lt;/h2&gt;&lt;p&gt;As outlined in &lt;a href="/blog/ending-python2-support"&gt;Ending Python 2 Support&lt;/a&gt;,
+1.0.x will be the last version to support Python 2.7 and 3.5. The next
+version will be 2.0 and will support Python 3.6 and newer.&lt;/p&gt;
+&lt;h2 id="install-or-upgrade"&gt;Install or Upgrade&lt;/h2&gt;&lt;p&gt;Install from &lt;a href="https://pypi.org/project/Werkzeug/"&gt;PyPI&lt;/a&gt; with pip:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;pip install -U Werkzeug
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id="donate-to-support-pallets"&gt;Donate to Support Pallets&lt;/h2&gt;&lt;p&gt;The Pallets organization accepts donations as part of the non-profit
+Python Software Foundation (PSF). Donations through the PSF support our
+efforts to maintain the projects and grow the community.&lt;/p&gt;
+&lt;p&gt;&lt;a href="/donate"&gt;Click here to donate. ❤&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id="for-enterprise"&gt;For Enterprise&lt;/h2&gt;&lt;p&gt;The Pallets team and thousands of other packages are working with
+Tidelift to deliver commercial support and maintenance for the open
+source dependencies you use to build your applications. Save time,
+reduce risk, and improve code health, while paying the maintainers of
+the exact dependencies you use.&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://tidelift.com/subscription/pkg/pypi-werkzeug?utm_source=pypi-werkzeug&amp;amp;utm_medium=referral&amp;amp;utm_campaign=enterprise"&gt;Learn more.&lt;/a&gt;&lt;/p&gt;
+</content>
+    <link href="https://palletsprojects.com/blog/werkzeug-1-0-0-released/" rel="alternate"/>
+  </entry>
+  <entry>
+    <id>urn:uuid:6aecc22e-b67b-356a-a262-576bfb252b75</id>
+    <title>Click 7.1 Released</title>
+    <updated>2020-03-09T00:00:00+00:00</updated>
+    <author>
+      <name>David Lord</name>
+    </author>
+    <content type="html">&lt;p&gt;The Pallets team is pleased to release Click 7.1.&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://click.palletsprojects.com/en/7.x/changelog/#version-7-1"&gt;Read the full changelog&lt;/a&gt;
+to understand what may affect your code when upgrading.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Drop support for Python 3.4. This will be the last version to
+support Python 2.7 and 3.5.&lt;/li&gt;
+&lt;li&gt;Multiple fixes in low-level Windows compatibility code.&lt;/li&gt;
+&lt;li&gt;Colored output in Jupyter notebooks on Linux and Mac.&lt;/li&gt;
+&lt;li&gt;Updated Bash and ZSH tab completion support. Add support for Fish.&lt;/li&gt;
+&lt;li&gt;Better formatting when option help text contains newlines.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;This also fixes a packaging issue from 7.0 where the project name in the
+package metadata was changed to "Click" with an upper case "C". This has
+been reverted, the name is now correctly reported in all lower case, "click".&lt;/p&gt;
+&lt;h2 id="version-8.0-coming-soon"&gt;Version 8.0 Coming Soon&lt;/h2&gt;&lt;p&gt;As outlined in &lt;a href="/blog/ending-python2-support"&gt;Ending Python 2 Support&lt;/a&gt;,
+7.1.x will be the last version to support Python 2.7 and 3.5. The next
+version will be 8.0 and will support Python 3.6 and newer.&lt;/p&gt;
+&lt;h2 id="install-or-upgrade"&gt;Install or Upgrade&lt;/h2&gt;&lt;p&gt;Install from &lt;a href="https://pypi.org/project/click/"&gt;PyPI&lt;/a&gt; with pip:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;pip install -U click
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id="donate-to-support-pallets"&gt;Donate to Support Pallets&lt;/h2&gt;&lt;p&gt;The Pallets organization accepts donations as part of the non-profit
+Python Software Foundation (PSF). Donations through the PSF support our
+efforts to maintain the projects and grow the community.&lt;/p&gt;
+&lt;p&gt;&lt;a href="/donate"&gt;Click here to donate. ❤&lt;/a&gt;&lt;/p&gt;
+</content>
+    <link href="https://palletsprojects.com/blog/click-7-1-released/" rel="alternate"/>
+  </entry>
+</feed>
