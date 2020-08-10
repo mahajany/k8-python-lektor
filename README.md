@@ -31,18 +31,22 @@ New .kube profile
 `scp -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no root@host01:/root/.kube/config ~/.kube/`
 
 Run service:
-
+```
 kubectl apply -f deployment.yaml
 kubectl get services
 kubectl get pods
+```
 
 Get port and URL:
+```
 export PORT=$(kubectl get svc hello-webapp -o go-template='{{range.spec.ports}}{{if .nodePort}}{{.nodePort}}{{"\n"}}{{end}}{{end}}')
 curl host01:$PORT
-
-
+```
+#### Tag and push image to Dockerhub
+```
 docker tag hello-lektor:v1 mahajany/hello-lektor:v1
- docker push  mahajany/hello-lektor:v1
+docker push  mahajany/hello-lektor:v1
+```
 
 #### Deployment steps:
 1) created a container 
@@ -50,11 +54,12 @@ docker tag hello-lektor:v1 mahajany/hello-lektor:v1
 3) pushed the container to a registry and 
 4) finally told Kubernetes all about these pieces with an updated manifest.
 
-Change
 
-sed -i -e 's/Hello World!/Hello Hacker News!!!/' app.py
-Use "Forge": Forge will automatically build your Docker container (based on your Dockerfile), push the container to your Docker registry of choice, build a deployment.yaml file for you that points to your image, and then deploy the container into Kubernetes.
 
-forge setup
+#### Forge - to deploy after any change
+Use "Forge" - it will automatically build your Docker container (based on your Dockerfile), push the container to your Docker registry of choice, build a deployment.yaml file for you that points to your image, and then deploy the container into Kubernetes.
+```
+forge setps
 generic || 2886795325-5000-frugo04.environments.katacoda.com || root || root || root 
 forege deploy
+```
