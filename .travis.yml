@@ -6,7 +6,7 @@ install:
   - pip install Lektor
   - pushd lektor-app && npm install --global npm@latest && popd
 script:
-  - lektor build -f lektor-app/webpack
+  - pushd lektor-app && lektor build -f webpack && popd
 after_success:
 #   - test "$TRAVIS_PULL_REQUEST" == "false" && test "$TRAVIS_BRANCH" == "master" && lektor deploy production
     - test "$TRAVIS_PULL_REQUEST" == "false" && test "$TRAVIS_BRANCH" == "master"
