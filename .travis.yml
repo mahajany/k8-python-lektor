@@ -3,23 +3,16 @@ sudo: false
 language: python
 python: 2.7
 install:
-  - cd lektor-app
   - pip install Lektor
-  - npm install --global npm@latest
+  - pushd lektor-app && npm install --global npm@latest && popd
 script:
-  - lektor build -f webpack
+  - lektor build -f lektor-app/webpack
 after_success:
-  - test "$TRAVIS_PULL_REQUEST" == "false" && test "$TRAVIS_BRANCH" == "master" && lektor deploy production
+#   - test "$TRAVIS_PULL_REQUEST" == "false" && test "$TRAVIS_BRANCH" == "master" && lektor deploy production
+    - test "$TRAVIS_PULL_REQUEST" == "false" && test "$TRAVIS_BRANCH" == "master"
 cache: pip
 # disabled because of travis issues
 #cache:
 #  directories:
 #    - $HOME/.cache/pip
 #    - $HOME/.cache/lektor/builds
-addons:
-  ssh_known_hosts:
-    - 213.127.77.206
-notifications:
-  webhooks:
-    urls:
-      - https://webhooks.gitter.im/e/f0c538cdfc9883f81e34
